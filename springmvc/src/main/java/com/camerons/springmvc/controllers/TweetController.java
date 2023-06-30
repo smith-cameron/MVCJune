@@ -39,6 +39,7 @@ public class TweetController {
 		this.tService.create(newTweet);
 		return "redirect:/tweet";
 	}
+	
 	@GetMapping("/edit/{tweetId}")
 	public String editRender(Model viewmodel, @PathVariable("tweetId")Long idToEdit) {
 		viewmodel.addAttribute("tweetToEdit", this.tService.getById(idToEdit));
@@ -57,6 +58,7 @@ public class TweetController {
 		return "redirect:/tweet";
 	}
 	
+//	Deleting via form and @DeleteMapping
 	@DeleteMapping("/delete/{tweetId}")
 	public String deleteMe(@PathVariable("tweetId")Long tweetId) {
 		System.out.println(tweetId);
@@ -64,9 +66,11 @@ public class TweetController {
 		return "redirect:/tweet";
 	}
 	
-	
-	
-	
-	
-	
+//	Deleting via link and @GetMapping
+	@GetMapping("/destroy/{tweetId}")
+	public String destroyMeAlternate(@PathVariable("tweetId")Long tweetId) {
+		System.out.println(tweetId);
+		this.tService.delete(tweetId);
+		return "redirect:/tweet";
+	}
 }

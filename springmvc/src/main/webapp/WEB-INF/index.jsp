@@ -50,7 +50,7 @@
 						<td><c:out value="${thing.imaginaryIntAtt}"/></td>
 						<td><fmt:formatDate pattern="yyy-MM-dd h:m a" value="${thing.createdAt}"/></td>
 						<td><fmt:formatDate pattern="yyy-MM-dd h:m a" value="${thing.updatedAt}"/></td>
-						<td><a href="/tweet/edit/${thing.id}">Edit</a> | <a href="/tweet/delete/${thing.id}">Delete</a>
+						<td><a href="/tweet/edit/${thing.id}">Edit</a> | <a href="/tweet/destroy/${thing.id}">Delete</a>
 						<form action="/tweet/delete/${thing.id}" method="post">
 						    <input type="hidden" name="_method" value="delete">
 						    <input type="submit" value="Delete">
